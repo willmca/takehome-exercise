@@ -1,11 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { Store, StoreModule } from '@ngrx/store';
 import { DropdownInputComponent } from './dropdown-input.component';
 import { updateValue } from '../../store/actions/value.actions';
 import { AppState } from '../../store/model/app.state';
 import { valueReducer } from '../../store/reducers/value.reducer';
-import { SelectItem } from 'primeng/api';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 describe('DropdownInputComponent', () => {
   let component: DropdownInputComponent;
@@ -16,7 +17,10 @@ describe('DropdownInputComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DropdownInputComponent ],
       imports: [
-        StoreModule.forRoot({ valueState: valueReducer }) 
+        StoreModule.forRoot({ valueState: valueReducer }),
+        FloatLabelModule,
+        DropdownModule,
+        FormsModule
       ]
     })
     .compileComponents();

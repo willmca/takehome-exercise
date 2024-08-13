@@ -2,12 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Store, StoreModule } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
 import { TextInputComponent } from './text-input.component';
 import { updateValue } from '../../store/actions/value.actions';
 import { AppState } from '../../store/model/app.state';
 import { valueReducer } from '../../store/reducers/value.reducer';
 import { GET_VALUE_FROM_LABEL, IS_VALID_INPUT } from '../../constants/input.constant';
+import { ButtonModule } from 'primeng/button';
+import { FormsModule } from '@angular/forms';
 
 class MockRouter {
   navigate(params: any) { }
@@ -24,6 +25,8 @@ describe('TextInputComponent', () => {
       declarations: [ TextInputComponent ],
       imports: [
         StoreModule.forRoot({ valueState: valueReducer }),
+        ButtonModule,
+        FormsModule
       ],
       providers: [
         { provide: Router, useClass: MockRouter }
