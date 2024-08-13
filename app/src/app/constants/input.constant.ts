@@ -1,4 +1,4 @@
-import { find, includes, map } from "lodash-es";
+import { find, includes, isNil, map } from "lodash-es";
 import { SelectItem } from "primeng/api";
 
 export const INPUT_OPTIONS: SelectItem[] = [
@@ -21,7 +21,13 @@ export function IS_VALID_INPUT(value: string): boolean {
     return (includes(acceptableValues, value))
 }
 
-export function GET_VALUE_FROM_LABEL (label: string): string {
+export function GET_VALUE_FROM_LABEL(label: string): string {
     const matchingOption = find(INPUT_OPTIONS, (option => option.label === label));
-    return matchingOption?.value
+    return isNil(matchingOption?.value) ? '' : matchingOption?.value
+}
+
+export function GET_LABEL_FROM_VALUE(value: string): string{
+    const matchingOption = find(INPUT_OPTIONS, (option => option.value === value));
+    return isNil(matchingOption?.label) ? '' : matchingOption?.label
+
 }

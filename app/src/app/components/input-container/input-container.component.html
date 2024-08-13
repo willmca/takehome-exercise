@@ -2,11 +2,11 @@
 <h2>Input value via Multiselect</h2>
 <p class="financial-input-instruction-text">Please select a value from the field below.</p>
 <div class="financial-input-container">
-    <app-dropdown-input [inputOptions]="inputOptions"></app-dropdown-input>
+    <app-dropdown-input [financialInputValue]="financialInputValue$ | async" [inputOptions]="inputOptions"></app-dropdown-input>
 </div>
 
 <h2>Input value via Text</h2>
 <p class="financial-input-instruction-text">Please enter a value in the input field below</p>
 <div class="financial-input-container">
-    <app-text-input [inputOptions]="inputOptions"></app-text-input>
+    <app-text-input [financialInputValue]="financialInputValue$ | async" [inputOptions]="inputOptions"></app-text-input>
 </div>

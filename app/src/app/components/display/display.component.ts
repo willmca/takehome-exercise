@@ -10,7 +10,7 @@ import { selectCurrentValue } from '../../store/selectors/value.selectors';
   styleUrl: './display.component.scss'
 })
 export class DisplayComponent {
-  public financialInputValue$: Observable<any>;
+  public financialInputValue$: Observable<string>;
 
   constructor(private store: Store<AppState>) {
     this.financialInputValue$ = this.store.select(selectCurrentValue);
