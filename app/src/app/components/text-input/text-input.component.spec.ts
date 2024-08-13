@@ -9,7 +9,6 @@ import { AppState } from '../../store/model/app.state';
 import { valueReducer } from '../../store/reducers/value.reducer';
 import { GET_VALUE_FROM_LABEL, IS_VALID_INPUT } from '../../constants/input.constant';
 
-// Mock router
 class MockRouter {
   navigate(params: any) { }
 }
@@ -24,7 +23,7 @@ describe('TextInputComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ TextInputComponent ],
       imports: [
-        StoreModule.forRoot({ valueState: valueReducer }) // Provide the reducer
+        StoreModule.forRoot({ valueState: valueReducer }),
       ],
       providers: [
         { provide: Router, useClass: MockRouter }

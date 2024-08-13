@@ -16,7 +16,7 @@ describe('DropdownInputComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ DropdownInputComponent ],
       imports: [
-        StoreModule.forRoot({ valueState: valueReducer }) // Provide the reducer
+        StoreModule.forRoot({ valueState: valueReducer }) 
       ]
     })
     .compileComponents();
