@@ -20,8 +20,13 @@ export class InputContainerComponent {
 
   }
 
+  public useMultiselect: boolean = true;
   public inputOptions: SelectItem[] = INPUT_OPTIONS
   public financialInputValue$: Observable<string>;
+
+  public toggleInputType(): void {
+    this.useMultiselect = !this.useMultiselect;
+  }
 }
 
 
