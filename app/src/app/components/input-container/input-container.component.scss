@@ -8,8 +8,11 @@
         flex-direction: column;
         width: 40%;
     }
-    &-text-label {
-        margin-bottom: 0.25rem;
+    &-text{
+        margin-bottom: 1rem;
+        &-label {
+            margin-bottom: 0.25rem;
+        }
     }
 
     &-dropdown-label-container {

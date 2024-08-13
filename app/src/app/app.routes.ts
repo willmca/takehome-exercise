@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DisplayComponent } from './components/display/display.component';
-import { InputComponent } from './components/input/input.component';
+import { InputContainerComponent } from './components/input-container/input-container.component';
 
 export const routes: Routes = [
     { path: 'display', component: DisplayComponent },
-    { path: 'input', component: InputComponent },
+    { path: 'input', component: InputContainerComponent },
     { path: '', redirectTo: '/display', pathMatch: 'full' },
 ];
 
