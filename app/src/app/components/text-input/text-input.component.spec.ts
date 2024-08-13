@@ -22,7 +22,7 @@ describe('TextInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TextInputComponent ],
+      declarations: [TextInputComponent],
       imports: [
         StoreModule.forRoot({ valueState: valueReducer }),
         ButtonModule,
@@ -32,7 +32,7 @@ describe('TextInputComponent', () => {
         { provide: Router, useClass: MockRouter }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TextInputComponent);
     component = fixture.componentInstance;
@@ -65,7 +65,7 @@ describe('TextInputComponent', () => {
     spyOn(router, 'navigate');
     component.financialInputValueText = 'test value';
     const expectedValue = GET_VALUE_FROM_LABEL('test value');
-    component.handleSubmit();    
+    component.handleSubmit();
     expect(store.dispatch).toHaveBeenCalledWith(updateValue({ value: expectedValue }));
     expect(router.navigate).toHaveBeenCalledWith(['display']);
   });
