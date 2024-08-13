@@ -12,11 +12,15 @@ import { StoreModule } from '@ngrx/store';
 import { valueReducer } from './store/reducers/value.reducer';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { TextInputComponent } from './components/text-input/text-input.component';
+import { DropdownInputComponent } from './components/dropdown-input/dropdown-input.component';
 @NgModule({
   declarations: [
     AppComponent,
     DisplayComponent,
-    InputContainerComponent
+    InputContainerComponent,
+    TextInputComponent,
+    DropdownInputComponent
   ],
   imports: [
     BrowserModule,
