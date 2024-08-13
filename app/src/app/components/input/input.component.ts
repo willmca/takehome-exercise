@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { INPUT_OPTIONS } from './constant/input.constant';
+import { INPUT_OPTIONS } from '../../constants/input.constant';
 import { SelectItem } from 'primeng/api';
 
 @Component({

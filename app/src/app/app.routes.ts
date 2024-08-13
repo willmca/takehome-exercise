@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DisplayComponent } from './display/display.component';
-import { InputComponent } from './input/input.component';
+import { DisplayComponent } from './components/display/display.component';
+import { InputComponent } from './components/input/input.component';
 
 export const routes: Routes = [
     { path: 'display', component: DisplayComponent },
