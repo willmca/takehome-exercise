@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { INPUT_OPTIONS } from '../../constants/input.constant';
+import { INPUT_OPTIONS, IS_INVALID_INPUT } from '../../constants/input.constant';
 import { SelectItem } from 'primeng/api';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/model/app.state';
@@ -18,10 +18,17 @@ export class InputComponent {
   }
 
   public inputOptions: SelectItem[] = INPUT_OPTIONS
-  public financialInputValue: string = '';
+  public financialInputValueDropdown: string = '';
+  public financialInputValueText: string = '';
+  public isInvalidInput: boolean = false;
+
 
   public handleDropdownChange(value: string) {
     this.store.dispatch(updateValue({ value }));
+  }
+
+  public handleTextInputChange(event: Event) {
+    this.isInvalidInput = IS_INVALID_INPUT((event?.target as HTMLInputElement).value);
   }
 }
 

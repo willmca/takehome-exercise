@@ -6,6 +6,10 @@
     &-container {
         display: flex;
         flex-direction: column;
+        width: 40%;
+    }
+    &-text-label {
+        margin-bottom: 0.25rem;
     }
 
     &-dropdown-label-container {
