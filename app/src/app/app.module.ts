@@ -7,6 +7,7 @@ import { DisplayComponent } from './display/display.component';
 import { InputComponent } from './input/input.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { RouterOutlet } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RouterOutlet } from '@angular/router';
     FormsModule,
     AppRoutesModule, 
     DropdownModule,
-    RouterOutlet
+    RouterOutlet,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
