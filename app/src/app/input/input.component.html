@@ -1,4 +1,4 @@
 <div class="input-container">
 <label class="financial-number-input-label" for="financialNumberInput">Financial Number</label>
-<p-dropdown inputId="financialNumberInput" placeholder="Select a Value" [options]="inputOptions"></p-dropdown>
+<p-dropdown inputId="financialNumberInput" placeholder="Select a Value" [options]="inputOptions" (onChange)="handleDropdownChange($event.value)"></p-dropdown>
 </div>

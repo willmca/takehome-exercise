@@ -13,4 +13,8 @@ export class InputComponent {
   }
 
   public inputOptions: SelectItem[] = INPUT_OPTIONS
+
+  public handleDropdownChange(value: string) {
+    console.log(value);
+  }
 }
