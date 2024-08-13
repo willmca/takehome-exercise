@@ -1,4 +1,14 @@
-<div class="input-container">
-<label class="financial-number-input-label" for="financialNumberInput">Financial Number</label>
-<p-dropdown inputId="financialNumberInput" placeholder="Select a Value" [options]="inputOptions" (onChange)="handleDropdownChange($event.value)"></p-dropdown>
+<h1>Welcome to the Financial Number Input and View App!</h1>
+<p class="financial-input-instruction-text">Please select a value from the field below.</p>
+<div class="financial-input-container">
+    <div class="financial-input-dropdown-label-container">
+        <p-floatLabel>
+            <p-dropdown [style]="{'width':'100%'}" inputId="float-label" placeholder="Select a Value" [options]="inputOptions"
+                (onChange)="handleDropdownChange($event.value)" [(ngModel)]="financialInputValue"
+                styleClass="width-10rem" />
+            <label for="float-label" for="financialNumberInput">Financial Number</label>
+        </p-floatLabel>
+    </div>
+    <p *ngIf="financialInputValue">Thanks for selecting a number! Please <a routerlink="/display">click here to view
+            your number</a>
 </div>
