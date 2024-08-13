@@ -1,1 +1,4 @@
-<p>display works!</p>
+<ng-container *ngIf="financialInputValue$ | async as financialInputValue; else emptyMessage">
+    <p>The current value is {{ financialInputValue }}</p>
+</ng-container>
+<ng-template #emptyMessage>There is no value selected yet, please <a routerLink="/input">click here</a> to enter a value</ng-template>
