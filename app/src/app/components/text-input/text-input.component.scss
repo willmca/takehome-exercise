@@ -1,0 +1,19 @@
+.financial-input {
+    &-text-container {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        label.financial-input-text-label {
+            margin-bottom: 0.25rem;
+        }
+        .financial-input-text-input {
+            margin-bottom: 1rem;
+        }
+        .error-content {
+            color: #990000;
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+}

@@ -2,29 +2,11 @@
 <h2>Input value via Multiselect</h2>
 <p class="financial-input-instruction-text">Please select a value from the field below.</p>
 <div class="financial-input-container">
-    <div class="financial-input-dropdown-label-container">
-        <p-floatLabel>
-            <p-dropdown [style]="{'width':'100%'}" inputId="float-label" placeholder="Select a Value"
-                [options]="inputOptions" (onChange)="handleDropdownChange($event.value)"
-                [(ngModel)]="financialInputValueDropdown" styleClass="width-10rem" />
-            <label for="float-label" for="float-label">Financial Number</label>
-        </p-floatLabel>
-    </div>
-    <p *ngIf="financialInputValueDropdown">Thanks for selecting a number! Please <a routerLink="/display">click here to
-            view
-            your number</a>
+    <app-dropdown-input [inputOptions]="inputOptions"></app-dropdown-input>
 </div>
 
 <h2>Input value via Text</h2>
+<p class="financial-input-instruction-text">Please enter a value in the input field below</p>
 <div class="financial-input-container">
-    <label class="financial-input-text-label" for="text-input">Financial Number (Open Input)</label>
-    <input class="financial-input-text" id="text-input" type="text" pInputText [(ngModel)]="financialInputValueText"
-        (input)="handleTextInputChange($event)" (blur)="handleToggleErrorMessage()" />
-    <ng-container *ngIf="showErrorMessage">
-        <p>Please enter a valid value to submit. Valid values include:</p>
-        <ul>
-            <li *ngFor="let option of inputOptions">{{ option.label }}</li>
-        </ul>
-    </ng-container>
-    <p-button label="Click to Submit Value" [disabled]="!isValidInput"></p-button>
+    <app-text-input [inputOptions]="inputOptions"></app-text-input>
 </div>
