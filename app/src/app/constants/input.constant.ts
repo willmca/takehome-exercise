@@ -1,3 +1,4 @@
+import { includes, map } from "lodash-es";
 import { SelectItem } from "primeng/api";
 
 export const INPUT_OPTIONS: SelectItem[] = [
@@ -14,3 +15,8 @@ export const INPUT_OPTIONS: SelectItem[] = [
         value: '500,000,000'
     }
 ]
+
+export function IS_INVALID_INPUT(value: string): boolean {
+    const acceptableValues = map(INPUT_OPTIONS, 'value');
+    return (includes(acceptableValues, value))
+}
