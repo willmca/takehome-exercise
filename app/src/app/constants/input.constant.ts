@@ -16,7 +16,7 @@ export const INPUT_OPTIONS: SelectItem[] = [
     }
 ]
 
-export function IS_INVALID_INPUT(value: string): boolean {
-    const acceptableValues = map(INPUT_OPTIONS, 'value');
+export function IS_VALID_INPUT(value: string): boolean {
+    const acceptableValues = map(INPUT_OPTIONS, 'label');
     return (includes(acceptableValues, value))
 }
