@@ -1,3 +1,4 @@
+<h2>Display</h2>
 <ng-container *ngIf="financialInputValue$ | async as financialInputValue; else emptyMessage">
     <p>The current value is {{ financialInputValue }}</p>
     <p>Please <a routerLink="/input">click here</a> to enter a new number</p>
