@@ -49,6 +49,19 @@ export function GET_DISPLAY_FROM_INPUT(input: string): string {
                 }
                 break
             }
+            case 't': {
+                formattedValue = formattedValue.slice(0, -1);
+                if (!includesDecimal) {
+                    formattedValue += ',000,000,000,000'
+                } else {
+                    const splitValueByDecimal: string[] = formattedValue.split('.')
+                    const zeroesToAdd: number = 12 - splitValueByDecimal[1].length;
+                    formattedValue = formattedValue.replace('.', ',')
+                    formattedValue += '0'.repeat(zeroesToAdd - 9);
+                    formattedValue += ',000,000,000'
+                }
+                break
+            }
         }
     }
     return formattedValue;

@@ -7,7 +7,7 @@ import { includes, isNil } from 'lodash-es';
 export class FinancialInputsDirective {
 
   // regex to allow for 3 digits prior to decimal, 2 digits after, an only end in k m or b
-  private regex: RegExp = new RegExp(/^\d{0,3}(\.\d{0,2})?[kmb]?$/i);
+  private regex: RegExp = new RegExp(/^\d{0,3}(\.\d{0,2})?[kmbt]?$/i);
   // List of special keys to allow outside of allowed regex
   private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', 'ArrowLeft', 'ArrowRight', 'Delete'];
 
