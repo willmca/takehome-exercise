@@ -3,7 +3,7 @@ import { includes } from "lodash-es";
 export function GET_DISPLAY_FROM_INPUT(input: string): string {
     const suffix: string = input.charAt(input.length - 1);
     let formattedValue: string = input;
-    // Trim any leading 0s to prevent issues
+    // Trim any leading 0s
     formattedValue = formattedValue.replace(/^0+/, '');
     const includesDecimal: boolean = includes(input, '.');
     if (suffix) {
@@ -66,7 +66,8 @@ export function GET_DISPLAY_FROM_INPUT(input: string): string {
             }
         }
     }
-    return formattedValue;
+    // Trim leading commas
+    return formattedValue.replace(/^,*/g, '');
 }
 
 export const ERROR_MESSAGE = `<p>The input is subject to the following restrictions:</p>
