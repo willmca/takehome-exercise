@@ -43,7 +43,6 @@ export class FinancialInputsDirective {
   @HostListener('input', ['$event'])
   // This is specifically to handle input events where a browser suggests text, these have no inputType
   handleInput(event: any) {
-    console.log(event);
     if (isNil(event.inputType)) {
       let inputValue = event?.target?.value;
       // Allow it if the pasted text matches the regex. If not, block it
