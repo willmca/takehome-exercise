@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from '../../store/model/app.state';
-import { selectCurrentValue } from '../../store/selectors/value.selectors';
+import { selectCurrentValueFormatted } from '../../store/selectors/value.selectors';
 
 @Component({
   selector: 'app-display',
@@ -13,6 +13,6 @@ export class DisplayComponent {
   public financialInputValue$: Observable<string>;
 
   constructor(private store: Store<AppState>) {
-    this.financialInputValue$ = this.store.select(selectCurrentValue);
+    this.financialInputValue$ = this.store.select(selectCurrentValueFormatted);
   }
 }
