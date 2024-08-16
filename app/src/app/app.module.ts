@@ -12,6 +12,7 @@ import { valueReducer } from './store/reducers/value.reducer';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { TextInputComponent } from './components/text-input/text-input.component';
+import { DirectivesModule } from './directives/directives.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TextInputComponent } from './components/text-input/text-input.component
     BrowserAnimationsModule,
     FloatLabelModule,
     ButtonModule,
-    StoreModule.forRoot({ valueState: valueReducer })
+    StoreModule.forRoot({ valueState: valueReducer }),
+    DirectivesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
