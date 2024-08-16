@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../store/model/app.state';
 import { updateValue } from '../../store/actions/value.actions';
 import { Router } from '@angular/router';
+import { selectCurrentValue } from '../../store/selectors/value.selectors';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-text-input',
@@ -15,11 +17,12 @@ export class TextInputComponent implements OnInit {
   public financialInputValueText: string = '';
 
   public ngOnInit(): void {
+    this.store.select(selectCurrentValue, take(1)).subscribe(value => this.financialInputValueText = value);
   }
 
 
   public handleSubmit(): void {
-    this.store.dispatch(updateValue({value: this.financialInputValueText}));
+    this.store.dispatch(updateValue({ value: this.financialInputValueText }));
     this.router.navigate(['./display']);
   }
 }
