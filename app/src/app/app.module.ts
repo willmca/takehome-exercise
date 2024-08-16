@@ -7,20 +7,17 @@ import { DisplayComponent } from './components/display/display.component';
 import { DropdownModule } from 'primeng/dropdown';
 import { RouterOutlet } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputContainerComponent } from './components/input-container/input-container.component';
 import { StoreModule } from '@ngrx/store';
 import { valueReducer } from './store/reducers/value.reducer';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { TextInputComponent } from './components/text-input/text-input.component';
-import { DropdownInputComponent } from './components/dropdown-input/dropdown-input.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     DisplayComponent,
-    InputContainerComponent,
     TextInputComponent,
-    DropdownInputComponent
   ],
   imports: [
     BrowserModule,
