@@ -1,17 +1,18 @@
 import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { FinancialInputsDirective } from './financial-inputs.directive';
 
 @Component({
   template: `<input type="text" financialInput />`
 })
-class TestComponent {}
+class TestComponent { }
 
 describe('FinancialInputsDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
   let inputElement: HTMLInputElement;
   let directive: FinancialInputsDirective;
+  let debugElement: DebugElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -19,8 +20,9 @@ describe('FinancialInputsDirective', () => {
     });
 
     fixture = TestBed.createComponent(TestComponent);
-    inputElement = fixture.debugElement.query(By.directive(FinancialInputsDirective)).nativeElement;
-    directive = fixture.debugElement.query(By.directive(FinancialInputsDirective)).injector.get(FinancialInputsDirective);
+    debugElement = fixture.debugElement;
+    inputElement = debugElement.query(By.directive(FinancialInputsDirective)).nativeElement;
+    directive = debugElement.query(By.directive(FinancialInputsDirective)).injector.get(FinancialInputsDirective);
     fixture.detectChanges();
   });
 
@@ -61,7 +63,6 @@ describe('FinancialInputsDirective', () => {
     spyOnProperty(event, 'inputType').and.returnValue(null);
     inputElement.dispatchEvent(event);
     fixture.detectChanges();
-    alert(inputElement); 
     expect(inputElement.value).toBe('');
   });
 
@@ -72,5 +73,20 @@ describe('FinancialInputsDirective', () => {
     inputElement.dispatchEvent(event);
     fixture.detectChanges();
     expect(inputElement.value).toBe('123.45k');
+  });
+
+  it('should create an error message element, and clear it when needed', () => {
+    const invalidEvent = new KeyboardEvent('keydown', { key: 'z' });
+    inputElement.dispatchEvent(invalidEvent);
+    fixture.whenStable().then(() => {
+      const errorElement: DebugElement = debugElement.query(By.css('.error-content'));
+      expect(errorElement).toBeTruthy();
+    })
+    const validEvent = new KeyboardEvent('keydown', { key: '1' });
+    inputElement.dispatchEvent(validEvent);
+    fixture.whenStable().then(() => {
+      const errorElement: DebugElement = debugElement.query(By.css('.error-content'));
+      expect(errorElement).toBeFalsy();
+    })
   });
 });
