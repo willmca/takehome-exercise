@@ -3,6 +3,8 @@ import { includes } from "lodash-es";
 export function GET_DISPLAY_FROM_INPUT(input: string): string {
     const suffix: string = input.charAt(input.length - 1);
     let formattedValue: string = input;
+    // Trim any leading 0s to prevent issues
+    formattedValue = formattedValue.replace(/^0+/, '');
     const includesDecimal: boolean = includes(input, '.');
     if (suffix) {
         switch (suffix) {
