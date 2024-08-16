@@ -13,7 +13,5 @@ export const selectCurrentValue = createSelector(
 
 export const selectCurrentValueFormatted = createSelector(
   selectCurrentValue,
-  (value: string) => {
-    return GET_DISPLAY_FROM_INPUT(value); 
-  }
-)
+  (value: string) => !isNil(value) ? GET_DISPLAY_FROM_INPUT(value) : ''
+);
