@@ -1,12 +1,5 @@
 <div class="financial-input-text-container">
-    <label class="financial-input-text-label" for="text-input">Financial Number (Open Input)</label>
-    <input class="financial-input-text-input" id="text-input" type="text" pInputText [(ngModel)]="financialInputValueText"
-        (input)="handleTextInputChange($event)" (blur)="handleToggleErrorMessage()" />
-    <div class="error-content" *ngIf="showErrorMessage">
-        <p>Please enter a valid value to submit. Valid values include:</p>
-        <ul>
-            <li *ngFor="let option of inputOptions">{{ option.label }}</li>
-        </ul>
-    </div>
-    <p-button label="Click to Submit Value" [disabled]="!isValidInput" (click)="handleSubmit()"></p-button>
+    <label class="financial-input-text-label" for="text-input">Financial Number</label>
+    <input class="financial-input-text-input" id="text-input" type="text" pInputText [(ngModel)]="financialInputValueText" />
+    <p-button label="Click to Submit Value" (click)="handleSubmit()"></p-button>
 </div>
