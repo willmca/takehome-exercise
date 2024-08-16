@@ -1,25 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/model/app.state';
 import { updateValue } from '../../store/actions/value.actions';
 import { Router } from '@angular/router';
-import { selectCurrentValue } from '../../store/selectors/value.selectors';
-import { take } from 'rxjs';
 
 @Component({
   selector: 'app-text-input',
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.scss'
 })
-export class TextInputComponent implements OnInit {
+export class TextInputComponent {
   constructor(private store: Store<AppState>, public router: Router
   ) { }
-  public financialInputValueText: string = '';
-
-  public ngOnInit(): void {
-    this.store.select(selectCurrentValue, take(1)).subscribe(value => this.financialInputValueText = value);
-  }
-
+  public financialInputValueText!: string;
 
   public handleSubmit(): void {
     this.store.dispatch(updateValue({ value: this.financialInputValueText }));
