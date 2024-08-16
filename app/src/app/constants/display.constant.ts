@@ -68,3 +68,8 @@ export function GET_DISPLAY_FROM_INPUT(input: string): string {
     }
     return formattedValue;
 }
+
+export const ERROR_MESSAGE = `<p>The input is subject to the following restrictions:</p>
+<ul><li>Only digits, decimal points, and the letters 'k', 'm', 'b', and 't' may be entered</li>
+<li>Only three digits may come before the decimal point, and only two digits may come after it </li>
+<li>The letters must be entered at the end of the input</li>`
