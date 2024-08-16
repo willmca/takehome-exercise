@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FinancialInputsDirective } from './financial-inputs.directive';
+import { FinancialInputsDirective } from './financial-inputs/financial-inputs.directive';
 
 
 
